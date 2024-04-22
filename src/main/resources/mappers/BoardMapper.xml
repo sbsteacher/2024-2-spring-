@@ -7,4 +7,10 @@
         VALUES
         (#{title}, #{contents}, #{writer})
     </insert>
+
+
+    <delete id="deleteBoard">
+        DELETE FROM board
+        WHERE board_id = #{board_id}
+    </delete>
 </mapper>

@@ -14,4 +14,8 @@ public class BoardService {
         System.out.println("BoardService - postBoard");
         return mapper.postBoard(p);
     }
+
+    public int deleteBoard(int boardId) {
+        return mapper.deleteBoard(boardId);
+    }
 }
