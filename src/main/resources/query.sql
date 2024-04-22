@@ -1,0 +1,8 @@
+CREATE TABLE board (
+   board_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+   title VARCHAR(100) NOT NULL,
+   contents VARCHAR(10000) NOT NULL,
+   writer VARCHAR(10) NOT NULL,
+   created_at DATETIME DEFAULT NOW(),
+   updated_at DATETIME
+);
