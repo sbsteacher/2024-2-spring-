@@ -1,5 +1,6 @@
 package com.green.board;
 
+import com.green.board.model.BoardGetDetailRes;
 import com.green.board.model.BoardGetRes;
 import com.green.board.model.BoardPostReq;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,10 @@ public class BoardService {
 
     public List<BoardGetRes> getBoardList() {
         return mapper.getBoardList();
+    }
+
+    public BoardGetDetailRes getBoardOne(long boardId) {
+        return mapper.getBoardOne(boardId);
     }
 
     public int deleteBoard(int boardId) {

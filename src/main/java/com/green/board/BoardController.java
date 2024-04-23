@@ -24,6 +24,11 @@ public class BoardController {
         return service.getBoardList();
     }
 
+    @GetMapping("{boardId}")
+    public BoardGetDetailRes getBoardOne(@PathVariable long boardId) {
+        return service.getBoardOne(boardId);
+    }
+
     @DeleteMapping
     public int deleteBoard(@RequestParam(name="board_id") int boardId) {
         return service.deleteBoard(boardId);
