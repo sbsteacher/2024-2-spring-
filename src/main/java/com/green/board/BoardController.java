@@ -1,10 +1,10 @@
 package com.green.board;
 
-import com.green.board.model.BoardPostReq;
+import com.green.board.model.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller; //화면 응답
 import org.springframework.web.bind.annotation.*;
+import java.util.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,12 +16,16 @@ public class BoardController {
     @PostMapping
     public int postBoard(@RequestBody BoardPostReq p) {
         System.out.println(p);
-        service.postBoard(p);
-        return 10;
+        return service.postBoard(p);
+    }
+
+    @GetMapping
+    public List<BoardGetRes> getBoardList() {
+        return service.getBoardList();
     }
 
     @DeleteMapping
-    public int deleteBoard(@RequestParam int boardId) {
+    public int deleteBoard(@RequestParam(name="board_id") int boardId) {
         return service.deleteBoard(boardId);
     }
 

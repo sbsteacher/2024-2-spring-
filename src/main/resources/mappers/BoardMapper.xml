@@ -8,6 +8,12 @@
         (#{title}, #{contents}, #{writer})
     </insert>
 
+    <select id="getBoardList">
+        SELECT board_id as boardId, title, writer, created_at as createdAt
+        FROM board
+        ORDER BY board_id DESC
+    </select>
+
 
     <delete id="deleteBoard">
         DELETE FROM board
