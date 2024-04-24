@@ -8,7 +8,7 @@ import java.util.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("board")
+@RequestMapping("/board")
 public class BoardController {
 
     private final BoardService service;
@@ -24,13 +24,19 @@ public class BoardController {
         return service.getBoardList();
     }
 
-    @GetMapping("{boardId}")
+    @GetMapping("/{boardId}")
     public BoardGetDetailRes getBoardOne(@PathVariable long boardId) {
         return service.getBoardOne(boardId);
     }
 
+    @PutMapping
+    public int putBoard(@RequestBody BoardPutReq p) {
+        return service.putBoard(p);
+    }
+
     @DeleteMapping
-    public int deleteBoard(@RequestParam(name="board_id") int boardId) {
+    public int deleteBoard(@RequestParam(name="board_id") long boardId) {
+        System.out.println("boardId: " + boardId);
         return service.deleteBoard(boardId);
     }
 

@@ -3,6 +3,7 @@ package com.green.board;
 import com.green.board.model.BoardGetDetailRes;
 import com.green.board.model.BoardGetRes;
 import com.green.board.model.BoardPostReq;
+import com.green.board.model.BoardPutReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,11 @@ public class BoardService {
         return mapper.getBoardOne(boardId);
     }
 
-    public int deleteBoard(int boardId) {
+    public int putBoard(BoardPutReq p) {
+        return mapper.putBoard(p);
+    }
+
+    public int deleteBoard(long boardId) {
         return mapper.deleteBoard(boardId);
     }
 }

@@ -20,6 +20,20 @@
         WHERE board_id = #{board_id}
     </select>
 
+    <update id="putBoard">
+        UPDATE board
+        SET updated_at = NOW()
+        <if test=" title != null and title != '' ">
+            , title = #{title}
+        </if>
+        <if test=" contents != null and contents != '' ">
+            , contents = #{contents}
+        </if>
+        <if test=" writer != null and writer != '' ">
+            , writer = #{writer}
+        </if>
+        WHERE board_id = #{boardId}
+    </update>
 
     <delete id="deleteBoard">
         DELETE FROM board
